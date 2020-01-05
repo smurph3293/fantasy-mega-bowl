@@ -1,0 +1,22 @@
+{
+  "name": "sample-nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "./node_modules/.bin/nodemon server.js",
+    "build": "gulp scripts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "nodemon": "^2.0.2",
+    "typescript": "^3.7.4",
+    "yahoo-fantasy": "^3.2.0"
+  }
+}
