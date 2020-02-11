@@ -1,7 +1,9 @@
+import { Bet } from './Bet';
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-let User = new Schema({
+export let User = new Schema({
     firstName: {
         type: String,
         trim: true,
@@ -30,7 +32,7 @@ let User = new Schema({
     createdAt: {
         type: Date,
         default: Date.now()
-    },
+    }
 });
 
 

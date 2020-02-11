@@ -1,22 +1,15 @@
 "use strict";
 
-var Models = require("../model/User");
+var Models = require("../model/Bet");
 
-const getUserById = id =>
-  new Promise((resolve, reject) => {
-    Models.findById(id)
-      .then(client => resolve(client))
-      .catch(err => reject(err));
-  });
-
-const getUsers = criteria =>
+const getBets = criteria =>
   new Promise((resolve, reject) => {
     Models.find(criteria)
       .then(client => resolve(client))
       .catch(err => reject(err));
   });
 
-const createUser = objToSave =>
+const createBet = objToSave =>
   new Promise((resolve, reject) => {
     new Models(objToSave)
       .save()
@@ -24,16 +17,16 @@ const createUser = objToSave =>
       .catch(err => reject(err));
   });
 
-const updateUser = (criteria, dataToSet, options) =>
+const updateBet = (criteria, dataToSet, options) =>
   new Promise((resolve, reject) => {
+    options.lean = true;
     options.new = true;
-    options.upsert = true;
     Models.findOneAndUpdate(criteria, dataToSet, options)
       .then(client => resolve(client))
       .catch(err => reject(err));
   });
 
-const deleteUser = criteria =>
+const deleteBet = criteria =>
   new Promise((resolve, reject) => {
     Models.findOneAndRemove(criteria)
       .exec()
@@ -43,8 +36,8 @@ const deleteUser = criteria =>
 
 
 module.exports = {
-  updateUser: updateUser,
-  createUser: createUser,
-  deleteUser: deleteUser,
-  getUsers: getUsers
+  updateBet: updateBet,
+  createBet: createBet,
+  deleteBet: deleteBet,
+  getBets: getBets
 };

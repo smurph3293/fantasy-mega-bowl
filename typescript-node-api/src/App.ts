@@ -5,6 +5,8 @@ import * as bodyParser from 'body-parser';
 import YahooRouter from './routes/YahooRouter';
 import LeagueRouter from './routes/LeagueRouter';
 import AuthRouter from './routes/AuthRouter';
+import BetRouter from './routes/BetRouter';
+import UserRouter from './routes/UserRouter';
 import "reflect-metadata";
 const cors = require('cors');
 
@@ -46,6 +48,8 @@ class App {
     this.express.use('/api/v1/yahoo/', YahooRouter);
     this.express.use('/api/v1/league/', LeagueRouter);
     this.express.use('/auth/', AuthRouter);
+    this.express.use('/bet/', BetRouter);
+    this.express.use('/user/', UserRouter);
   }
 
 }
